@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Bradbury Challenge</title>
   <meta name="description" content="A poem, an essay and a short story every day.">
-  <meta name="theme-color" content="#f6f1e7" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#17140f" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f4f2ec" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1c19" media="(prefers-color-scheme: dark)">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Bradbury">
@@ -14,18 +14,25 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon-180.png">
+  <link rel="preload" href="fonts/redaction-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/redaction-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
   <script type="module" src="app.js"></script>
 </head>
 <body>
-  <header class="bar">
+  <header class="masthead">
+    <p class="tagline">One poem · One essay · One story</p>
+    <h1 class="flag">The Bradbury</h1>
+  </header>
+
+  <nav class="dateline" aria-label="Choose day">
     <button class="nav" id="prev" type="button" aria-label="Previous day">‹</button>
     <div class="when">
-      <h1 id="date">Bradbury</h1>
+      <p id="date" class="date">&nbsp;</p>
       <p id="subtitle" class="sub">&nbsp;</p>
     </div>
     <button class="nav" id="next" type="button" aria-label="Next day">›</button>
-  </header>
+  </nav>
 
   <main>
     <p id="banner" class="banner" hidden></p>

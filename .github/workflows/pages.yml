@@ -32,6 +32,7 @@ jobs:
           mkdir -p _site/data
           cp index.html style.css app.js lib.js manifest.webmanifest icon.svg icon-*.png _site/
           cp data/readings.csv _site/data/
+          cp -r fonts _site/
 
       - uses: actions/configure-pages@v5
 

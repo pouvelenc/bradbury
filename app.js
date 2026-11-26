@@ -247,6 +247,7 @@ function setStatus(s) {
 // ---------- Rendering ----------
 
 const fmtDay = new Intl.DateTimeFormat('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
+const fmtDateline = new Intl.DateTimeFormat('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
 const fmtMonth = new Intl.DateTimeFormat('en-GB', { month: 'long', year: 'numeric' });
 const fmtTime = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit' });
 
@@ -273,8 +274,8 @@ function render() {
   if (!d) return;
   const first = state.dates[0];
 
-  $('#date').textContent = fmtDay.format(parseISO(d));
-  const dayNo = first && d >= first ? `Day ${daysBetween(first, d) + 1} · ` : '';
+  $('#date').textContent = fmtDateline.format(parseISO(d));
+  const dayNo = first && d >= first ? `No. ${daysBetween(first, d) + 1} · ` : '';
   $('#subtitle').textContent = dayNo + relative(d);
   document.title = `${fmtDay.format(parseISO(d))} · Bradbury`;
 
@@ -325,9 +326,9 @@ function pieceCard(d, p) {
   return el('article', { class: e.read ? 'piece is-read' : 'piece', 'data-type': p.type },
     el('div', { class: 'piece-head' },
       el('span', { class: 'kind' }, label(p.slot)),
-      link && el('a', { class: 'open', ...link }, 'Open ↗')),
+      link && el('a', { class: 'open', ...link }, 'Read online ↗')),
     el('h3', { class: 'title' }, link ? el('a', link, p.title) : p.title),
-    p.author && el('p', { class: 'author' }, p.author),
+    p.author && el('p', { class: 'author' }, `By ${p.author}`),
     p.source && el('p', { class: 'meta' }, p.source),
     p.note && el('p', { class: 'note' }, p.note),
     el('div', { class: 'actions' },
@@ -336,7 +337,7 @@ function pieceCard(d, p) {
         class: 'read-toggle',
         'aria-pressed': String(e.read),
         onclick: () => setEntry(d, p.slot, { read: !e.read }),
-      }, el('span', { class: 'check', 'aria-hidden': 'true' }, e.read ? '✓' : ''), 'Read'),
+      }, el('span', { class: 'check', 'aria-hidden': 'true' }), 'Read'),
       stars));
 }
 

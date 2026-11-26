@@ -32,7 +32,12 @@ Without a token everything still works, but ticks and ratings stay only in that 
 | `data/readings.csv` | The reading list: `date,type,title,author,url,source,note`, one row per piece. |
 | `data/progress.csv` | Your ticks and ratings: `date,type,read,rating,updated`. Written by the page. |
 | `index.html`, `style.css`, `app.js`, `lib.js` | The page. No build step, no dependencies. |
+| `fonts/` | Redaction font files (woff2) and their licence. |
 | `.github/workflows/pages.yml` | Deploys to GitHub Pages on every push to `main` (except progress-only commits). |
+
+## Design
+
+Set in [Redaction](https://www.redaction.us/) by MCKL (Forest Young and Jeremy Mickel) for Titus Kaphar and Reginald Dwayne Betts, used under the SIL Open Font License ([`fonts/OFL.txt`](fonts/OFL.txt)). The masthead uses the slightly worn "Redaction 10" grade. The colours are newsprint and ink with the Fairphone 6 Forest Green (`#2a544e`), and in dark mode its lime accent (`#dcff51`).
 
 ## Local preview
 
