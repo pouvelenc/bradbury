@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Bradbury Challenge</title>
+  <meta name="description" content="A poem, an essay and a short story every day.">
+  <meta name="theme-color" content="#f6f1e7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#17140f" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Bradbury">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-180.png">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="bar">
+    <button class="nav" id="prev" type="button" aria-label="Previous day">‹</button>
+    <div class="when">
+      <h1 id="date">Bradbury</h1>
+      <p id="subtitle" class="sub">&nbsp;</p>
+    </div>
+    <button class="nav" id="next" type="button" aria-label="Next day">›</button>
+  </header>
+
+  <main>
+    <p id="banner" class="banner" hidden></p>
+    <section id="pieces" class="pieces" aria-live="polite"></section>
+
+    <section class="month" aria-labelledby="month-title">
+      <div class="month-head">
+        <h2 id="month-title">&nbsp;</h2>
+        <p id="month-stats" class="sub"></p>
+      </div>
+      <div class="weekdays" aria-hidden="true">
+        <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+      </div>
+      <div id="grid" class="grid"></div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <button id="today" class="pill" type="button" hidden>Today</button>
+    <span id="status" class="status" role="status"></span>
+    <button id="open-settings" class="icon-btn" type="button" aria-label="Settings">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M19.14 12.94c.04-.3.06-.61.06-.94s-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96a7 7 0 0 0-1.62-.94l-.36-2.54a.48.48 0 0 0-.48-.41h-3.84a.47.47 0 0 0-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.48.48 0 0 0-.59.22L2.74 8.87a.47.47 0 0 0 .12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32a.47.47 0 0 0-.12-.61zM12 15.6a3.6 3.6 0 1 1 0-7.2 3.6 3.6 0 0 1 0 7.2z"/></svg>
+    </button>
+  </footer>
+
+  <dialog id="settings">
+    <form method="dialog" id="settings-form">
+      <h2 tabindex="-1" autofocus>Settings</h2>
+      <p class="hint">Your ticks and ratings are always saved on this device. To also save them to
+        <a id="repo-link" href="#" target="_blank" rel="noopener">the GitHub repo</a>, paste a
+        fine-grained personal access token with <strong>Contents: read and write</strong> access to this repository only.</p>
+      <label for="token">GitHub token</label>
+      <input id="token" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="github_pat_…">
+      <p id="token-state" class="hint"></p>
+      <div class="row">
+        <button id="save-token" class="pill primary" type="button">Save token</button>
+        <button id="clear-token" class="pill" type="button">Remove</button>
+      </div>
+      <hr>
+      <p id="sync-detail" class="hint"></p>
+      <div class="row">
+        <button id="sync-now" class="pill" type="button">Sync now</button>
+        <button id="export" class="pill" type="button">Export CSV</button>
+      </div>
+      <div class="row end">
+        <button class="pill" value="close">Close</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>
