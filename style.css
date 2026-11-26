@@ -22,8 +22,8 @@
   font-weight: 700; font-style: normal; font-display: swap;
 }
 
-/* Colours: newsprint and ink, with the Fairphone 6 Forest Green
-   (#2a544e) and its lime switch accent (#dcff51). */
+/* Colours: newsprint and ink, with the Fairphone 6 Forest Green (#2a544e).
+   Dark mode uses the phone's darker frame green with plain grey accents. */
 :root {
   --paper: #f4f2ec;
   --ink: #16211e;
@@ -31,7 +31,7 @@
   --line: #cfd3cb;
   --rule: #16211e;
   --accent: #2a544e;
-  --on-accent: #dcff51;
+  --on-accent: #f4f2ec;
   --star: #2a544e;
   --star-off: #c8cdc5;
   --bar: rgb(244 242 236 / .9);
@@ -47,9 +47,9 @@
     --muted: #93a29c;
     --line: #2a3d38;
     --rule: #c5ccc4;
-    --accent: #d4f25a;
+    --accent: #c4c9c6;
     --on-accent: #0f1c19;
-    --star: #d4f25a;
+    --star: #c4c9c6;
     --star-off: #344a44;
     --bar: rgb(15 28 25 / .9);
     color-scheme: dark;
@@ -86,7 +86,7 @@ button:disabled { opacity: .2; cursor: default; }
 a { color: inherit; }
 
 /* Small uppercase labels, as in a newspaper. */
-.tagline, .sub, .kind, .open, .author, .weekdays, .pill, .read-toggle {
+.sub, .kind, .open, .author, .weekdays, .pill, .read-toggle {
   text-transform: uppercase;
   letter-spacing: .12em;
 }
@@ -99,16 +99,9 @@ a { color: inherit; }
   padding: calc(18px + env(safe-area-inset-top)) 16px 0;
   text-align: center;
 }
-.tagline {
-  margin: 0;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--rule);
-  font-size: .66rem;
-  color: var(--muted);
-}
 .flag {
   margin: 0;
-  padding: 10px 0 6px;
+  padding: 4px 0 8px;
   font: 700 clamp(2.6rem, 13vw, 3.6rem)/1 "Redaction 10", var(--serif);
   letter-spacing: -.01em;
 }
@@ -217,8 +210,8 @@ main {
 .title {
   margin: 6px 0;
   font-weight: 700;
-  font-size: 1.85rem;
-  line-height: 1.08;
+  font-size: 1.6rem;
+  line-height: 1.1;
   letter-spacing: -.01em;
   text-wrap: balance;
 }

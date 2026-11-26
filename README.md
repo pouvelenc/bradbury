@@ -37,7 +37,7 @@ Without a token everything still works, but ticks and ratings stay only in that 
 
 ## Design
 
-Set in [Redaction](https://www.redaction.us/) by MCKL (Forest Young and Jeremy Mickel) for Titus Kaphar and Reginald Dwayne Betts, used under the SIL Open Font License ([`fonts/OFL.txt`](fonts/OFL.txt)). The masthead uses the slightly worn "Redaction 10" grade. The colours are newsprint and ink with the Fairphone 6 Forest Green (`#2a544e`), and in dark mode its lime accent (`#dcff51`).
+Set in [Redaction](https://www.redaction.us/) by MCKL (Forest Young and Jeremy Mickel) for Titus Kaphar and Reginald Dwayne Betts, used under the SIL Open Font License ([`fonts/OFL.txt`](fonts/OFL.txt)). The masthead uses the slightly worn "Redaction 10" grade. The colours are newsprint and ink with the Fairphone 6 Forest Green (`#2a544e`); dark mode uses the phone's darker frame green with grey accents.
 
 ## Local preview
 
