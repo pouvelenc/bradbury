@@ -1,7 +1,7 @@
 import {
   csvObjects, groupReadings, isISODate, isoDate, parseISO, addDays, initialDate, neighbours,
   slotParts, progressKey, parseProgress, serializeProgress, mergeProgress, b64encode, b64decode,
-} from './lib.js';
+} from './lib.js?v=dev';
 
 const CONFIG = {
   owner: 'pouvelenc',
