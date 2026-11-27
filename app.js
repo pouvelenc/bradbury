@@ -12,7 +12,12 @@ const CONFIG = {
 };
 const API = `https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${CONFIG.progressPath}`;
 const LS = { progress: 'bradbury.progress', pending: 'bradbury.pending', token: 'bradbury.token' };
-const LABELS = { poem: 'Poem', essay: 'Essay', story: 'Short story' };
+// Card labels follow the language of the piece (the `lang` column).
+const STRINGS = {
+  en: { poem: 'Poem', essay: 'Essay', story: 'Short story', bonus: 'bonus', by: 'By', open: 'Read online ↗' },
+  sv: { poem: 'Dikt', essay: 'Essä', story: 'Novell', bonus: 'extra', by: 'Av', open: 'Läs online ↗' },
+};
+const strings = lang => STRINGS[lang] || STRINGS.en;
 
 // localStorage can throw (private mode, blocked storage): never let it break the page.
 const store = {
@@ -263,10 +268,11 @@ function relative(d) {
   return n > 0 ? `In ${n} days` : `${-n} days ago`;
 }
 
-function label(slot) {
+function label(slot, lang) {
   const { type, n } = slotParts(slot);
-  const base = LABELS[type] || type.charAt(0).toUpperCase() + type.slice(1);
-  return n > 1 ? `${base} · bonus` : base;
+  const t = strings(lang);
+  const base = t[type] || type.charAt(0).toUpperCase() + type.slice(1);
+  return n > 1 ? `${base} · ${t.bonus}` : base;
 }
 
 function render() {
@@ -313,6 +319,7 @@ function renderPieces(d) {
 function pieceCard(d, p) {
   const e = entry(d, p.slot);
   const link = p.url ? { href: p.url, target: '_blank', rel: 'noopener' } : null;
+  const t = strings(p.lang);
 
   const stars = el('div', { class: 'stars', role: 'group', 'aria-label': 'Rating' },
     [1, 2, 3, 4, 5].map(n => el('button', {
@@ -323,12 +330,12 @@ function pieceCard(d, p) {
       onclick: () => setEntry(d, p.slot, { rating: e.rating === n ? 0 : n }),
     }, '★')));
 
-  return el('article', { class: e.read ? 'piece is-read' : 'piece', 'data-type': p.type },
+  return el('article', { class: e.read ? 'piece is-read' : 'piece', 'data-type': p.type, lang: p.lang || null },
     el('div', { class: 'piece-head' },
-      el('span', { class: 'kind' }, label(p.slot)),
-      link && el('a', { class: 'open', ...link }, 'Read online ↗')),
+      el('span', { class: 'kind' }, label(p.slot, p.lang)),
+      link && el('a', { class: 'open', ...link }, t.open)),
     el('h3', { class: 'title' }, link ? el('a', link, p.title) : p.title),
-    p.author && el('p', { class: 'author' }, `By ${p.author}`),
+    p.author && el('p', { class: 'author' }, `${t.by} ${p.author}`),
     p.source && el('p', { class: 'meta' }, p.source),
     p.note && el('p', { class: 'note' }, p.note),
     el('div', { class: 'actions' },

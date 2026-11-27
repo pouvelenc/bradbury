@@ -29,7 +29,7 @@ Without a token everything still works, but ticks and ratings stay only in that 
 
 | File | What it is |
 |---|---|
-| `data/readings.csv` | The reading list: `date,type,title,author,url,source,note`, one row per piece. |
+| `data/readings.csv` | The reading list: `date,type,lang,title,author,url,source,note`, one row per piece (`lang` is `en` or `sv`). |
 | `data/progress.csv` | Your ticks and ratings: `date,type,read,rating,updated`. Written by the page. |
 | `index.html`, `style.css`, `app.js`, `lib.js` | The page. No build step, no dependencies. |
 | `fonts/` | Redaction font files (woff2) and their licence. |
