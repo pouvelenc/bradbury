@@ -11,7 +11,10 @@ A static GitHub Pages site (`pouvelenc/bradbury`) that shows a daily poem, essay
 - `lang`: `en` or `sv`. Swedish pieces get Swedish card labels ("Dikt", "Essä", "Novell", "Av …", "Läs online ↗") and a Swedish `note`.
 - `url`: where the piece can be read for free online. Check that each URL works and points to the full text, not an excerpt or paywall. If there's no free copy, leave `url` empty and name the book or anthology in `source`.
 - `source`: publication and year, e.g. `"The New Yorker, 1948"`. Quote fields that contain commas.
-- `note`: optional, one line on why the piece was picked. It is shown on the card.
+- `note`: one or two sentences on the piece's content or historical context, shown on the card. Write in a dry, factual style:
+  - Don't address the reader or refer to their interests, other days or our conversations.
+  - Avoid clichés and slogan constructions such as "X meets Y", "X vs Y" or "X: Y".
+  - Put reading instructions (e.g. "första kapitlet") in `source`, not here.
 - Rows with `Sample entry` in the note are placeholders. Replace them.
 - Don't change the date or type of past rows: progress is keyed by `date` + slot (the type, plus `2`, `3`… for bonus pieces in CSV order).
 
@@ -23,7 +26,7 @@ A static GitHub Pages site (`pouvelenc/bradbury`) that shows a daily poem, essay
 The owner asks something like "curate January". Then:
 1. `git pull` (the phone commits progress throughout the month).
 2. Join `readings.csv` with `progress.csv` on `date` + slot. Summarise average rating and read rate by type, language, author, period, region, form and source. Note pieces left unread.
-3. Propose the next month's list: lean towards what scored well, keep variety (eras, countries, translated work, women and men, forms), and avoid repeating authors too often. One poem, one essay and one short story per day, sized to be readable in a sitting. Check every URL.
+3. Propose the next month's list: lean towards what scored well, keep variety (eras, countries, translated work, women and men, forms), and avoid repeating authors too often. One poem, one essay and one short story per day, sized to be readable in a sitting. Check every URL and every fact stated in a note.
 4. Show the proposal and ask for changes, then append the rows to `readings.csv` in date order and push to `main`. The Pages workflow redeploys automatically.
 
 ### The owner's standing preferences (set for December 2026)
